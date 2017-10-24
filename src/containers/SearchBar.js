@@ -16,12 +16,10 @@ class SearchBar extends Component {
     this.setState({
       term: e.target.value
     })
-    console.log('state', e.target.value);
   }
 
   onFormSubmit(e){
     e.preventDefault()
-    console.log("should be term: ", this.state.term);
     this.props.fetchWeather(this.state.term)
     this.setState({ term: ''})
   }

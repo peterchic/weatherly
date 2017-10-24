@@ -10,6 +10,7 @@ class WeatherList extends Component {
         const temp = _.map(cityData.list.map(weather => weather.main.temp), (temp) => temp - 273)
     const pressure = cityData.list.map(weather => weather.main.pressure)
     const humidity = cityData.list.map(weather => weather.main.humidity)
+    const sky = cityData.list.map(weather => weather.weather.main)
     const { lon, lat } = cityData.city.coord
 
     return (
@@ -24,6 +25,8 @@ class WeatherList extends Component {
 
   render() {
     return (
+      <div className="table-responsive">
+
       <table className="table table-hover">
         <thead>
           <tr>
@@ -37,6 +40,7 @@ class WeatherList extends Component {
         {this.props.weather.map(this.renderWeather)}
       </tbody>
       </table>
+    </div>
     )
   }
 }
